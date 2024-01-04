@@ -1,3 +1,4 @@
+wavmark @ git+https://github.com/violetdenim/wavmark@main
 torch>=2.1.0
 transformers
 omegaconf
