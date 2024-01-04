@@ -18,19 +18,6 @@ This is the fork of https://github.com/3DTopia/OpenLRM.git
 # violetdenim Contribution
 [![Google Colab](https://img.shields.io/badge/google-colab-red)]([https://huggingface.co/spaces/zxhezexin/OpenLRM](https://colab.research.google.com/drive/1qk4d6l9iG67h3AO2_iIsRQnKYFtpXGQs?usp=sharing))
 
-
-<img src="assets/rendered_video/teaser.gif" width="75%" height="auto"/>
-
-<div style="text-align: left">
-    <img src="assets/mesh_snapshot/crop.owl.ply00.png" width="12%" height="auto"/>
-    <img src="assets/mesh_snapshot/crop.owl.ply01.png" width="12%" height="auto"/>
-    <img src="assets/mesh_snapshot/crop.building.ply00.png" width="12%" height="auto"/>
-    <img src="assets/mesh_snapshot/crop.building.ply01.png" width="12%" height="auto"/>
-    <img src="assets/mesh_snapshot/crop.rose.ply00.png" width="12%" height="auto"/>
-    <img src="assets/mesh_snapshot/crop.rose.ply01.png" width="12%" height="auto"/>
-</div>
-
-
 ## Setup
 
 ### Installation
