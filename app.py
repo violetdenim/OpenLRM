@@ -1,20 +1,14 @@
-import PIL.Image
-import gradio as gr
-import torch
-import numpy as np
 from PIL import Image
-import open3d as o3d
-from pathlib import Path
-
-from matplotlib import pyplot as plt
+import os.path
+from rembg import remove
+import gradio as gr
+import numpy as np
+import cv2
 import torch
+
 from lrm.inferrer import LRMInferrer
 
-import cv2
-import numpy as np
-import os.path
-from PIL import Image
-from rembg import remove
+
 
 # this function crops source image to fit in 512x512 square window
 def crop_512(img):
@@ -33,9 +27,6 @@ def crop_512(img):
     dh, dw = (512 - h) // 2, (512 - w) // 2
     img = np.pad(img, [(dh, 512 - dh - h), (dw, 512 - dw - w), (0, 0)], constant_values=255)
 
-    # print(img.shape)
-    # plt.imshow(img)
-    # plt.show()
     assert (img.shape[0] == 512)
     assert (img.shape[1] == 512)
     return img
@@ -99,19 +90,7 @@ def process_image(path):
                              )
     mesh_path = os.path.splitext(path)[0] + '.obj'
     results["mesh"].export(mesh_path, 'obj')
-    return [PIL.Image.fromarray(test), mesh_path, mesh_path]
-
-def plot_grid(arr, indices):
-    grid_size = int(np.ceil(np.sqrt(len(indices))))
-    fig, axes = plt.subplots(grid_size, grid_size)
-    for i, axe in enumerate(axes.flatten()):
-        axe.axis('off')
-        if i < len(indices) and indices[i] < len(arr):
-            elem = arr[indices[i]]
-            if isinstance(elem, torch.Tensor):
-                elem = elem.cpu().detach().permute(1, 2, 0).numpy()
-            axe.imshow(elem)
-            axe.set_title(indices[i])
+    return [Image.fromarray(test), mesh_path, mesh_path]
 
 title = "Demo: zero-shot 3D reconstruction"
 description = "This is demo for https://github.com/violetdenim/OpenLRM (fork of https://github.com/3DTopia/OpenLRM project)"

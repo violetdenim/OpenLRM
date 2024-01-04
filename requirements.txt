@@ -6,3 +6,4 @@ pillow
 imageio[ffmpeg]
 PyMCubes
 trimesh
+gradio
