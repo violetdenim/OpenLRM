@@ -1,3 +1,5 @@
+import argparse
+
 from PIL import Image
 import os.path
 from rembg import remove
@@ -51,7 +53,7 @@ def load_preprocessed(path):
         test = crop_512(test)
     return test
 
-def process_image(path):
+def process_image(inferrer, path):
     test = load_preprocessed(path)
 
     def prepare_numpy(source_image: np.ndarray, source_image_size):
@@ -81,31 +83,31 @@ def process_image(path):
             export_mesh=True,
         )
 
-    with LRMInferrer(model_name='lrm-base-obj-v1') as inferrer:
-        results = demo_infer(inferrer,
-                             source_image=test,
-                             source_size=-1,
-                             render_size=-1,
-                             mesh_size=384
-                             )
+    results = demo_infer(inferrer, source_image=test, source_size=-1, render_size=-1, mesh_size=384)
     mesh_path = os.path.splitext(path)[0] + '.obj'
     results["mesh"].export(mesh_path, 'obj')
     return [Image.fromarray(test), mesh_path, mesh_path]
 
-title = "Demo: zero-shot 3D reconstruction"
-description = "This is demo for https://github.com/violetdenim/OpenLRM (fork of https://github.com/3DTopia/OpenLRM project)"
-examples_dir = "assets/with_background"
-examples = [[os.path.join(examples_dir, file)] for file in os.listdir(examples_dir)]
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--model_name', type=str, default='lrm-base-obj-v1')
+    parser.add_argument('--share', action='store_true', default=False)
+    args = parser.parse_args()
 
-demo = gr.Interface(fn=process_image,
-                     inputs=[gr.Image(type="filepath", label="Input Image")],
-                     outputs=[gr.Image(label="foreground", type="pil"),
-                              gr.Model3D(label="3d mesh reconstruction", clear_color=[1.0, 1.0, 1.0, 1.0]),
-                              gr.File(label="3d obj")],
-                     title=title,
-                     description=description,
-                     examples=examples,
-                     allow_flagging="never",
-                     cache_examples=False)
+    title = "Demo: zero-shot 3D reconstruction"
+    description = "This is demo for https://github.com/violetdenim/OpenLRM (fork of https://github.com/3DTopia/OpenLRM project)"
+    examples_dir = "assets/with_background"
+    examples = [[os.path.join(examples_dir, file)] for file in os.listdir(examples_dir)]
 
-demo.launch()
+    with LRMInferrer(args.model_name) as inferrer:
+        demo = gr.Interface(fn=lambda x: process_image(inferrer, x),
+                         inputs=[gr.Image(type="filepath", label="Input Image")],
+                         outputs=[gr.Image(label="foreground", type="pil"),
+                                  gr.Model3D(label="3d mesh reconstruction", clear_color=[1.0, 1.0, 1.0, 1.0]),
+                                  gr.File(label="3d obj")],
+                         title=title,
+                         description=description,
+                         examples=examples,
+                         allow_flagging="never",
+                         cache_examples=False)
+        demo.launch(share=args.share)
