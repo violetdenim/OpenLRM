@@ -99,7 +99,7 @@ def process_image(path):
                              )
     mesh_path = os.path.splitext(path)[0] + '.obj'
     results["mesh"].export(mesh_path, 'obj')
-    return [PIL.Image.fromarray(test), mesh_path, mesh_path] #results["mesh"]
+    return [PIL.Image.fromarray(test), mesh_path, mesh_path]
 
 def plot_grid(arr, indices):
     grid_size = int(np.ceil(np.sqrt(len(indices))))
@@ -115,7 +115,7 @@ def plot_grid(arr, indices):
 
 title = "Demo: zero-shot 3D reconstruction"
 description = "This is demo for https://github.com/violetdenim/OpenLRM (fork of https://github.com/3DTopia/OpenLRM project)"
-examples_dir = "assets/sample_input"
+examples_dir = "assets/with_background"
 examples = [[os.path.join(examples_dir, file)] for file in os.listdir(examples_dir)]
 
 demo = gr.Interface(fn=process_image,
