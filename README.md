@@ -1,6 +1,5 @@
 This is the fork of https://github.com/3DTopia/OpenLRM.git
 # Contributions
-- pytorch 2.1+, cuda 11.8+
 - removing background and centering any input image using [Rembg](https://github.com/danielgatis/rembg)
 - Python Notebook (demp.ipynb)
 - Gradio Application with model viewer (app.py)
