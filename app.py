@@ -13,7 +13,7 @@ from lrm.inferrer import LRMInferrer
 # this function crops source image to fit in 512x512 square window
 def crop_512(img):
     img, alpha = img[:,:,:3], img[:,:,3]
-    img.reshape(-1, 3)[alpha.reshape(-1)==0] = [255, 255, 255]
+    img.reshape(-1, 3)[alpha.reshape(-1) == 0] = [255, 255, 255]
     x, y, w, h = cv2.boundingRect(alpha)
     img = img[y:y+h, x:x+w, :]
 
