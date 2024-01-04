@@ -54,4 +54,5 @@ Thumbs.db
 *.mov
 *.ply
 *.gltf
+.ipynb_checkpoints
 
