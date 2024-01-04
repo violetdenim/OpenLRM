@@ -1,5 +1,6 @@
 # Ignore Python cache files
 **/__pycache__
+.ipynb_checkpoints
 
 # Ignore compiled Python files
 *.pyc
@@ -54,5 +55,5 @@ Thumbs.db
 *.mov
 *.ply
 *.gltf
-#.ipynb_checkpoints
+
 
