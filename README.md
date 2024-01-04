@@ -1,8 +1,8 @@
 This is the fork of https://github.com/3DTopia/OpenLRM.git
 # Contributions
 - removing background and centering any input image using [Rembg](https://github.com/danielgatis/rembg)
-- Python Notebook (demp.ipynb)
-- Gradio Application with model viewer (app.py)
+- Python Notebook [demo.ipynb] (https://github.com/violetdenim/OpenLRM/blob/main/demo.ipynb)
+- Gradio Application with model viewer [app.py] (https://github.com/violetdenim/OpenLRM/blob/main/app.py)
 
 
 # OpenLRM: Open-Source Large Reconstruction Models
@@ -15,7 +15,7 @@ This is the fork of https://github.com/3DTopia/OpenLRM.git
 [![HF Demo](https://img.shields.io/badge/Demo-Huggingface%20Demo-blue)](https://huggingface.co/spaces/zxhezexin/OpenLRM)
 
 # violetdenim Contribution
-[![Google Colab](https://img.shields.io/badge/google-colab-red)]([https://huggingface.co/spaces/zxhezexin/OpenLRM](https://colab.research.google.com/drive/1qk4d6l9iG67h3AO2_iIsRQnKYFtpXGQs?usp=sharing))
+[![Google Colab](https://img.shields.io/badge/google-colab-red)](https://colab.research.google.com/drive/1qk4d6l9iG67h3AO2_iIsRQnKYFtpXGQs?usp=sharing0)
 
 ## Setup
 
