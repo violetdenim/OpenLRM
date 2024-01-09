@@ -11,11 +11,26 @@ This is the fork of https://github.com/3DTopia/OpenLRM.git
 [![Weight License](https://img.shields.io/badge/Weight%20License-CC%20By%20NC%204.0-red)](LICENSE_WEIGHT)
 [![LRM](https://img.shields.io/badge/LRM-Arxiv%20Link-green)](https://arxiv.org/abs/2311.04400)
 
-[![HF Models](https://img.shields.io/badge/Models-Huggingface%20Models-bron)](https://huggingface.co/zxhezexin/OpenLRM)
+[![HF Models](https://img.shields.io/badge/Models-Huggingface%20Models-bron)](https://huggingface.co/zxhezexin)
 [![HF Demo](https://img.shields.io/badge/Demo-Huggingface%20Demo-blue)](https://huggingface.co/spaces/zxhezexin/OpenLRM)
 
 # violetdenim Contribution
 [![Google Colab](https://img.shields.io/badge/google-colab-red)](https://colab.research.google.com/drive/1qk4d6l9iG67h3AO2_iIsRQnKYFtpXGQs?usp=sharing0)
+=======
+<img src="assets/rendered_video/teaser.gif" width="75%" height="auto"/>
+
+<div style="text-align: left">
+    <img src="assets/mesh_snapshot/crop.owl.ply00.png" width="12%" height="auto"/>
+    <img src="assets/mesh_snapshot/crop.owl.ply01.png" width="12%" height="auto"/>
+    <img src="assets/mesh_snapshot/crop.building.ply00.png" width="12%" height="auto"/>
+    <img src="assets/mesh_snapshot/crop.building.ply01.png" width="12%" height="auto"/>
+    <img src="assets/mesh_snapshot/crop.rose.ply00.png" width="12%" height="auto"/>
+    <img src="assets/mesh_snapshot/crop.rose.ply01.png" width="12%" height="auto"/>
+</div>
+
+## News
+
+- [2024.01.09] Updated all v1.0 models trained on Objaverse. Please refer to [HF Models](https://huggingface.co/zxhezexin) and overwrite previous model weights.
 
 ## Setup
 
@@ -30,7 +45,6 @@ cd OpenLRM
 pip install -r requirements.txt
 ```
 
-## To run Python Notebook run
 ```
 jupyter notebook demo.ipynb
 ```
